@@ -1,0 +1,6 @@
+<h1>Editing a comment for "<%= @post.title %>"</h1>
+<%= simple_form_for @comment, url: post_comment_path do |f| %>
+	<%= f.input :body %>
+	<%= f.button :submit %>
+<% end %>
+

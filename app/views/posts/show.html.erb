@@ -1,0 +1,23 @@
+<div class="post">
+	<h1><%= @post.title %></h1>
+	<%= simple_format @post.body %>
+	<p>Posted <%= time_ago_in_words @post.created_at %> ago.</p>
+
+	<div class="actions">
+		<%= link_to "Edit", edit_post_path(@post) %>
+		<%= link_to "Delete", post_path, method: :delete %>
+		<%= link_to "Comment", new_post_comment_path(@post) %>
+	</div>
+</div>
+<div class="comments">
+	<% @comments.each do |comment| %>
+		<div class="comment">
+		<%= simple_format comment.body %>
+		<p>Left <%= time_ago_in_words comment.created_at %> ago </p>
+		<%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+		</div>
+	<% end %>
+</div>
+
+
+
